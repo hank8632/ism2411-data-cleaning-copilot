@@ -11,6 +11,10 @@ Install pandas with:
 ```bash
 pip install pandas
 
+#Python and Pandas should be up to date
+python --version
+pip --version
+python -m pip install --upgrade pip
 
 #Run this script
 
