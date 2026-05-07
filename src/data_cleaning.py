@@ -30,7 +30,7 @@ def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
 
     # Remove rows with missing values.
-    df = df.dropna()
+    df = df.dropna(subject=["price", "qty", "date_sold"])
 
     return df
 
@@ -49,11 +49,11 @@ def remove_invalid_rows(df: pd.DataFrame) -> pd.DataFrame:
         df = df[df["price"] > 0]
 
     # If a quantity column exists, convert it to numbers.
-    if "quantity" in df.columns:
-        df["quantity"] = pd.to_numeric(df["quantity"], errors="coerce")
+    if "qty" in df.columns:
+        df["qty"] = pd.to_numeric(df["qty"], errors="coerce")
 
         # Remove rows where quantity is missing, zero, or negative.
-        df = df[df["quantity"] > 0]
+        df = df[df["qty"] > 0]
 
     return df
 
