@@ -30,7 +30,7 @@ def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
 
     # Remove rows with missing values.
-    df = df.dropna(subject=["price", "qty", "date_sold"])
+    df = df.dropna(subset=["price", "qty", "date_sold"])
 
     return df
 
