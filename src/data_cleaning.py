@@ -29,6 +29,9 @@ def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
     # Make a copy of the DataFrame.
     df = df.copy()
 
+    # Replace black spaces or empty strings with missing values.
+    df = df.replace(r"^\s*$", pd.NA, regex=True)
+
     # Remove rows with missing values.
     df = df.dropna(subset=["price", "qty", "date_sold"])
 
